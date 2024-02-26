@@ -20,3 +20,7 @@ class SentimentAnalysis:
                 labels.append(label)
         return texts, labels # retorna as listas com os textos e os rótulos das críticas
 
+    def train_model(self):
+        train_texts, train_labels = self.load_data(self.train_folder)
+        test_texts, test_labels = self.load_data(self.test_folder)
+        train_texts, val_texts, train_labels, val_labels = train_test_split(train_texts, train_labels, test_size=0.2, random_state=42)
