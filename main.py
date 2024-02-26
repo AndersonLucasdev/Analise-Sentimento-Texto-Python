@@ -1,6 +1,7 @@
-import numpy as np
 import os
-import sklearn as sk
+import numpy as np
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
 
 
 class SentimentAnalysis:
@@ -17,4 +18,5 @@ class SentimentAnalysis:
                 with open(os.path.join(folder, filename), 'r', encoding='utf-8') as file:
                     texts.append(file.read())
                 labels.append(label)
-        return texts, labels
+        return texts, labels # retorna as listas com os textos e os rótulos das críticas
+
