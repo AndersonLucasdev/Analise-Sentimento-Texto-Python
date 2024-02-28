@@ -3,6 +3,8 @@ import os
 import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
 
 class SentimentAnalysis:
     ## inicializa as pastas
@@ -27,3 +29,5 @@ class SentimentAnalysis:
         train_texts, train_labels = self.load_data(self.train_folder)
         test_texts, test_labels = self.load_data(self.test_folder)
         train_texts, val_texts, train_labels, val_labels = train_test_split(train_texts, train_labels, test_size=0.2, random_state=42)
+
+        
