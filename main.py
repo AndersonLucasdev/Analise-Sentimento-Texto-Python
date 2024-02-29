@@ -40,3 +40,8 @@ class SentimentAnalysis:
         val_predicted = text_clf.predict(val_texts)
         val_accuracy = accuracy_score(val_labels, val_predicted)
         print("Acurácia na validação:", val_accuracy)
+        
+
+        test_predicted = text_clf.predict(test_texts)
+        test_accuracy = accuracy_score(test_labels, test_predicted)
+        print("Acurácia nos dados de teste:", test_accuracy)
