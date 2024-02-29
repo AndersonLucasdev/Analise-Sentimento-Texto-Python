@@ -37,4 +37,6 @@ class SentimentAnalysis:
         ])
         text_clf.fit(train_texts, train_labels)
 
-        
+        val_predicted = text_clf.predict(val_texts)
+        val_accuracy = accuracy_score(val_labels, val_predicted)
+        print("Acurácia na validação:", val_accuracy)
