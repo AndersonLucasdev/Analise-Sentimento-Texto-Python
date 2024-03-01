@@ -45,3 +45,7 @@ class SentimentAnalysis:
         test_predicted = text_clf.predict(test_texts)
         test_accuracy = accuracy_score(test_labels, test_predicted)
         print("Acurácia nos dados de teste:", test_accuracy)
+
+if __name__ == "__main__":
+    sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test')
+    sentiment_analysis.train_model()
