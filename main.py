@@ -30,24 +30,30 @@ class SentimentAnalysis:
 
     def train_model(self):
         ## Divide os dados (treinamento e teste)
-        train_texts, train_labels = self.load_data(self.train_folder)
-        test_texts, test_labels = self.load_data(self.test_folder)
-        train_texts, val_texts, train_labels, val_labels = train_test_split(train_texts, train_labels, test_size=0.2, random_state=42)
+        try:
+            train_texts, train_labels = self.load_data(self.train_folder)
+            test_texts, test_labels = self.load_data(self.test_folder)
+            if train_texts is None or test_texts is None:
+                return
+            
+            train_texts, val_texts, train_labels, val_labels = train_test_split(train_texts, train_labels, test_size=0.2, random_state=42)
 
-        text_clf = Pipeline([
-        ('vect', CountVectorizer()),
-        ('clf', MultinomialNB()),
-        ])
-        text_clf.fit(train_texts, train_labels)
+            text_clf = Pipeline([
+                ('vect', CountVectorizer()),
+                ('clf', MultinomialNB()),
+            ])
+            text_clf.fit(train_texts, train_labels)
 
-        val_predicted = text_clf.predict(val_texts)
-        val_accuracy = accuracy_score(val_labels, val_predicted)
-        print("Acurácia na validação:", val_accuracy)
-        
+            val_predicted = text_clf.predict(val_texts)
+            val_accuracy = accuracy_score(val_labels, val_predicted)
+            print("Acurácia na validação:", val_accuracy)
 
-        test_predicted = text_clf.predict(test_texts)
-        test_accuracy = accuracy_score(test_labels, test_predicted)
-        print("Acurácia nos dados de teste:", test_accuracy)
+            test_predicted = text_clf.predict(test_texts)
+            test_accuracy = accuracy_score(test_labels, test_predicted)
+            print("Acurácia nos dados de teste:", test_accuracy)
+        except Exception as e:
+            print(f"Erro durante o treinamento do modelo: {e}")
+
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test')
