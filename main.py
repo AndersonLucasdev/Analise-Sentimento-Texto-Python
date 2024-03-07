@@ -14,16 +14,19 @@ class SentimentAnalysis:
         self.test_folder = test_folder
 
     def load_data(self, folder_path):
-        texts = []
-        labels = []
-        for label in ['pos', 'neg']:
-            folder = os.path.join(folder_path, label)
-            ## intera sobre os arquivos da pasta
-            for filename in os.listdir(folder):
-                with open(os.path.join(folder, filename), 'r', encoding='utf-8') as file:
-                    texts.append(file.read())
-                labels.append(label)
-        return texts, labels ## retorna as listas com os textos e os rótulos das críticas
+        try:
+            texts = []
+            labels = []
+            for label in ['pos', 'neg']:
+                folder = os.path.join(folder_path, label)
+                for filename in os.listdir(folder):
+                    with open(os.path.join(folder, filename), 'r', encoding='utf-8') as file:
+                        texts.append(file.read())
+                    labels.append(label)
+            return texts, labels ## retorna as listas com os textos e os rótulos das críticas
+        except Exception as e:
+            print(f"Erro ao carregar os dados: {e}")
+            return None, None 
 
     def train_model(self):
         ## Divide os dados (treinamento e teste)
