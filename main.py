@@ -9,9 +9,10 @@ from sklearn.naive_bayes import MultinomialNB
 
 class SentimentAnalysis:
     ## inicializa as pastas
-    def __init__(self, train_folder, test_folder):
+    def __init__(self, train_folder, test_folder, classifier='nb'):
         self.train_folder = train_folder
         self.test_folder = test_folder
+        self.classifier = classifier
 
     def load_data(self, folder_path):
         try:
