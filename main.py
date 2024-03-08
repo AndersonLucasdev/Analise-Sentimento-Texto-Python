@@ -6,6 +6,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 class SentimentAnalysis:
     ## inicializa as pastas
@@ -13,6 +15,8 @@ class SentimentAnalysis:
         self.train_folder = train_folder
         self.test_folder = test_folder
         self.classifier = classifier
+
+    
 
     def load_data(self, folder_path):
         try:
