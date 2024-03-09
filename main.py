@@ -32,7 +32,15 @@ class SentimentAnalysis:
             return None, None 
     
     def get_classifier(self):
-        pass
+        if self.classifier == 'nb':
+            return MultinomialNB()
+        elif self.classifier == 'svm':
+            return SVC(kernel='linear')
+        elif self.classifier == 'decision_tree':
+            return DecisionTreeClassifier()
+        else:
+            raise ValueError("Algoritmo de classificação inválido!")
+
 
     def train_model(self):
         ## Divide os dados (treinamento e teste)
