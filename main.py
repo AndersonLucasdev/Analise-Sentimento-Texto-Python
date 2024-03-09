@@ -16,8 +16,6 @@ class SentimentAnalysis:
         self.test_folder = test_folder
         self.classifier = classifier
 
-    
-
     def load_data(self, folder_path):
         try:
             texts = []
@@ -32,6 +30,9 @@ class SentimentAnalysis:
         except Exception as e:
             print(f"Erro ao carregar os dados: {e}")
             return None, None 
+    
+    def get_classifier(self):
+        pass
 
     def train_model(self):
         ## Divide os dados (treinamento e teste)
