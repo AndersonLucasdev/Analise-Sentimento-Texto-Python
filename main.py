@@ -54,7 +54,7 @@ class SentimentAnalysis:
 
             text_clf = Pipeline([
                 ('vect', CountVectorizer()),
-                ('clf', MultinomialNB()),
+                ('clf', self.get_classifier()),  # Usando o algoritmo de classificação selecionado
             ])
             text_clf.fit(train_texts, train_labels)
 
