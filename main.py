@@ -1,13 +1,14 @@
 ## importações
 import os
+import joblib
 import numpy as np
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
 
 class SentimentAnalysis:
     ## inicializa as pastas
