@@ -76,8 +76,12 @@ class SentimentAnalysis:
         else:
             print("Nenhum modelo treinado para salvar.")
 
-    def load_model(self):
-        pass
+    def load_model(self, filename):
+        try:
+            self.model = joblib.load(filename)
+            print("Modelo carregado com sucesso.")
+        except Exception as e:
+            print(f"Erro ao carregar o modelo: {e}")
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
