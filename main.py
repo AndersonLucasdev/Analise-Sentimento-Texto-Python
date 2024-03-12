@@ -69,7 +69,15 @@ class SentimentAnalysis:
         except Exception as e:
             print(f"Erro durante o treinamento do modelo: {e}")
 
-    def save_model(self):
+    def save_model(self, filename):
+        if self.model is not None:
+            joblib.dump(self.model, filename)
+            print("Modelo salvo com sucesso.")
+        else:
+            print("Nenhum modelo treinado para salvar.")
+
+    def load_model(self):
+        pass
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
