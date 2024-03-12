@@ -43,7 +43,6 @@ class SentimentAnalysis:
         else:
             raise ValueError("Algoritmo de classificação inválido!")
 
-
     def train_model(self):
         ## Divide os dados (treinamento e teste)
         try:
@@ -70,6 +69,7 @@ class SentimentAnalysis:
         except Exception as e:
             print(f"Erro durante o treinamento do modelo: {e}")
 
+    def save_model(self):
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
