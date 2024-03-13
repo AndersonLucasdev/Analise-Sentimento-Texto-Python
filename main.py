@@ -83,8 +83,12 @@ class SentimentAnalysis:
         except Exception as e:
             print(f"Erro ao carregar o modelo: {e}")
 
-    def predict(self):
-        pass
+    def predict(self, texts):
+        if self.model is None:
+            print("Nenhum modelo treinado disponível.")
+            return None
+        else:
+            return self.model.predict(texts)
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
