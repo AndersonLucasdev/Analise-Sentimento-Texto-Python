@@ -83,6 +83,9 @@ class SentimentAnalysis:
         except Exception as e:
             print(f"Erro ao carregar o modelo: {e}")
 
+    def predict(self):
+        pass
+
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
     sentiment_analysis.train_model()
