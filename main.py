@@ -100,3 +100,4 @@ class SentimentAnalysis:
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
     sentiment_analysis.train_model()
+    sentiment_analysis.save_model('sentiment_model.pkl')
