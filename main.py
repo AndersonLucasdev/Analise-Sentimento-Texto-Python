@@ -90,8 +90,16 @@ class SentimentAnalysis:
         else:
             return self.model.predict(texts)
     
-    def evaluate_model(self):
-        pass
+    def evaluate_model(self, texts, labels):
+        if self.model is None:
+            print("Nenhum modelo treinado disponível.")
+            return
+        else:
+            predicted = self.model.predict(texts)
+            print("Relatório de Classificação:")
+            print(classification_report(labels, predicted))
+            print("Matriz de Confusão:")
+            print(confusion_matrix(labels, predicted))
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
