@@ -89,6 +89,9 @@ class SentimentAnalysis:
             return None
         else:
             return self.model.predict(texts)
+    
+    def evaluate_model(self):
+        pass
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
