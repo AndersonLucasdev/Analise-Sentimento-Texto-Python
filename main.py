@@ -37,6 +37,10 @@ class SentimentAnalysis:
             print(f"Erro ao carregar os dados: {e}")
             return None, None 
     
+    def preprocess_data(self):
+        self.texts_train, self.labels_train = self.load_data(self.train_folder)
+        self.texts_test, self.labels_test = self.load_data(self.test_folder)
+
     def get_classifier(self):
         if self.classifier == 'nb':
             return MultinomialNB()
