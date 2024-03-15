@@ -16,6 +16,10 @@ class SentimentAnalysis:
         self.train_folder = train_folder
         self.test_folder = test_folder
         self.classifier = classifier
+        self.texts_train = []
+        self.labels_train = []
+        self.texts_test = []
+        self.labels_test = []
         self.model = None
 
     def load_data(self, folder_path):
