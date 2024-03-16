@@ -36,6 +36,9 @@ class SentimentAnalysis:
         :param folder_path: Caminho para a pasta contendo os dados.
         :return: texts (list), labels (list)
         """
+        if not os.path.exists(folder_path):
+            raise FileNotFoundError(f"O diretório {folder_path} não existe.")
+        
         try:
             texts = []
             labels = []
