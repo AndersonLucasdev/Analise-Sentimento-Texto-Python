@@ -170,6 +170,14 @@ class SentimentAnalysis:
         axes[0].set_ylabel('Número de Exemplos')
         axes[0].set_xticks(train_class_counts[0])
 
+        axes[1].bar(test_class_counts[0], test_class_counts[1], color='orange')
+        axes[1].set_title('Distribuição de Classes (Teste)')
+        axes[1].set_xlabel('Sentimento')
+        axes[1].set_ylabel('Número de Exemplos')
+        axes[1].set_xticks(test_class_counts[0])
+
+        plt.show()
+
 plt.show()
 
 if __name__ == "__main__":
