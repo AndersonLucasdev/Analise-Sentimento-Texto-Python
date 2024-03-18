@@ -153,6 +153,9 @@ class SentimentAnalysis:
             print(classification_report(labels, predicted))
             print("Matriz de Confusão:")
             print(confusion_matrix(labels, predicted))
+    
+    def visualize_class_distribution(self):
+        pass
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
