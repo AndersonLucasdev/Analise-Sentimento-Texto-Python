@@ -162,6 +162,13 @@ class SentimentAnalysis:
         train_class_counts = np.unique(self.labels_train, return_counts=True)
         test_class_counts = np.unique(self.labels_test, return_counts=True)
 
+        fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+        axes[0].bar(train_class_counts[0], train_class_counts[1], color='blue')
+        axes[0].set_title('Distribuição de Classes (Treinamento)')
+        axes[0].set_xlabel('Sentimento')
+        axes[0].set_ylabel('Número de Exemplos')
+        axes[0].set_xticks(train_class_counts[0])
+
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
     sentiment_analysis.train_model()
