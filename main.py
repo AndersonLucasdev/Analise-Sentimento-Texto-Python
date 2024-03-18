@@ -169,6 +169,8 @@ class SentimentAnalysis:
         axes[0].set_ylabel('Número de Exemplos')
         axes[0].set_xticks(train_class_counts[0])
 
+plt.show()
+
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
     sentiment_analysis.train_model()
