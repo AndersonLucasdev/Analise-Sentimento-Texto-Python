@@ -155,7 +155,12 @@ class SentimentAnalysis:
             print(confusion_matrix(labels, predicted))
     
     def visualize_class_distribution(self):
-        pass
+        if self.texts_train is None or self.texts_test is None:
+            print("Dados não carregados.")
+            return
+
+        train_class_counts = np.unique(self.labels_train, return_counts=True)
+        test_class_counts = np.unique(self.labels_test, return_counts=True)
 
 if __name__ == "__main__":
     sentiment_analysis = SentimentAnalysis('aclImdb/train', 'aclImdb/test', classifier='svm')
